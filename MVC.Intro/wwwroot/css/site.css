@@ -545,3 +545,73 @@ body {
         text-decoration: underline;
         transform: translateY(-1px);
     }
+
+.navbar .nav-link {
+    position: relative;
+    color: #fff !important;
+    font-size: 1.15rem;
+    padding-bottom: 4px;
+    transition: color 0.3s ease;
+}
+
+    .navbar .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0%;
+        height: 2px;
+        background-color: #fff;
+        transition: width 0.3s ease;
+    }
+
+    .navbar .nav-link:hover::after,
+    .navbar .nav-link.active::after {
+        width: 100%;
+    }
+
+
+    .navbar .nav-link.active {
+        color: #ffe082 !important;
+        font-weight: 700;
+    }
+
+/* HERO */
+.hero-wrap {
+    border-radius: 14px;
+}
+
+.hero-card {
+    background: linear-gradient(135deg, #5ba0e6, #3f7cc1);
+    border-radius: 16px;
+    padding: 0;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 320px; /* текст | илюстрация */
+}
+
+@media (max-width: 992px) {
+    .hero-card {
+        grid-template-columns: 1fr;
+    }
+}
+
+.hero-content {
+    background: #fff;
+    margin: 16px;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 6px 16px rgba(0,0,0,.06);
+}
+
+.hero-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.hero-art {
+    min-height: 220px;
+    background: url("/images/shop-banner.svg") right 24px center / 260px auto no-repeat, radial-gradient(ellipse at center, rgba(255,255,255,.45), rgba(255,255,255,0) 60%);
+}
+

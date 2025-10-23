@@ -3,7 +3,7 @@
 }
 
 <!-- Hero Section с картинка -->
-<div class="hero-section">
+@* <div class="hero-section">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6">
@@ -23,7 +23,32 @@
             </div>
         </div>
     </div>
+</div> *@
+
+<!-- Hero Section -->
+<div class="hero-wrap mb-4">
+    <div class="hero-card">
+        <div class="hero-content">
+            <h1 class="display-5 fw-bold mb-2 d-flex align-items-center gap-2">
+                <img src="~/images/la.png" alt="Shop" class="hero-icon">
+                Добре дошли!
+            </h1>
+            <p class="text-muted mb-3">Открийте най-добрите оферти на едно място</p>
+
+            <div class="d-flex gap-3 flex-wrap">
+                <a asp-controller="Product" asp-action="Index" class="btn btn-success btn-lg">
+                    🛒 Виж продукти
+                </a>
+                <a asp-controller="Routing" asp-action="Default" class="btn btn-outline-secondary btn-lg">
+                    📘 Научи routing
+                </a>
+            </div>
+        </div>
+        <!-- вместо <img> отдясно използваме фон-илюстрация (няма да се „чупи“) -->
+        <div class="hero-art"></div>
+    </div>
 </div>
+
 
 <!-- Features Section -->
 <div class="container my-5">
