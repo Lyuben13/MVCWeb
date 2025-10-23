@@ -5,45 +5,52 @@
     var bg = CultureInfo.GetCultureInfo("bg-BG");
 }
 
-<!-- Hero Section -->
-<div class="hero-section" style="
-     background: linear-gradient(135deg, #5ba0e6, #3f7cc1);
-     color: #fff; padding: 36px 0; border-radius: 16px;">
-    <div class="container">
-        <h1 class="display-6 fw-bold mb-2">🛒 Нашите продукти</h1>
-        <p class="mb-3">Открийте най-добрите оферти на едно място</p>
-        <a asp-controller="Product" asp-action="Create" class="btn btn-light btn-lg">
-            ➕ Добави нов продукт
-        </a>
+<!-- HERO -->
+<section class="hero-wrap mb-4">
+    <div class="hero-card">
+        <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
+            <div>
+                <h1 class="fw-bold mb-2 text-gradient">🛍️ Нашите продукти</h1>
+                <p class="text-muted mb-3">Открийте най-добрите оферти на едно място</p>
+                <a asp-controller="Product" asp-action="Create" class="btn btn-success btn-lg">
+                    ➕ Добави нов продукт
+                </a>
+            </div>
+            <img src="~/images/shop-banner.svg"
+                 alt="Products banner"
+                 class="hero-img ms-md-4"
+                 onerror="this.style.display='none';" />
+        </div>
     </div>
-</div>
+</section>
 
-<div class="container mt-4">
+<!-- MAIN -->
+<div class="container fade-in-up">
 
-    @* Съобщения *@
+    @* Flash messages *@
     @if (TempData["SuccessMessage"] is string ok && !string.IsNullOrWhiteSpace(ok))
     {
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
             @ok
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
     }
     @if (TempData["ErrorMessage"] is string err && !string.IsNullOrWhiteSpace(err))
     {
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <div class="alert alert-danger alert-dismissible fade show shadow-sm" role="alert">
             @err
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
     }
 
-    @if (Model != null && Model.Any())
+    @if (Model?.Any() == true)
     {
         <div class="row g-4">
             @foreach (var item in Model)
             {
                 <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm product-card">
-                        <div class="card-img-top" style="height: 200px; overflow: hidden; background: #f5f7fa;">
+                    <div class="card product-card h-100 border-0">
+                        <div class="position-relative" style="height:220px; overflow:hidden; border-radius:12px;">
                             @{
                                 var imgUrl = !string.IsNullOrWhiteSpace(item.ImagePath)
                                 ? Url.Content("~/" + item.ImagePath.TrimStart('/'))
@@ -51,12 +58,12 @@
                             }
                             <img src="@imgUrl"
                                  alt="@item.Name"
-                                 style="width:100%; height:100%; object-fit:cover;"
+                                 class="w-100 h-100 object-fit-cover"
                                  onerror="this.onerror=null; this.src='/images/product-placeholder.svg';" />
                         </div>
 
                         <div class="card-body d-flex flex-column">
-                            <h5 class="card-title text-primary mb-1">@item.Name</h5>
+                            <h5 class="fw-semibold text-primary mb-1">@item.Name</h5>
 
                             @if (!string.IsNullOrWhiteSpace(item.Category))
                             {
@@ -65,7 +72,7 @@
 
                             @if (!string.IsNullOrWhiteSpace(item.Description))
                             {
-                                <p class="card-text text-muted small mb-3">@item.Description</p>
+                                <p class="text-muted small mb-3">@item.Description</p>
                             }
 
                             <div class="mt-auto">
@@ -73,29 +80,20 @@
                                     <strong class="text-success fs-5">
                                         @item.Price.ToString("C", bg)
                                     </strong>
-
-                                    @if (item.InStock)
-                                    {
-                                        <span class="badge bg-success">В наличност</span>
-                                    }
-                                    else
-                                    {
-                                        <span class="badge bg-danger">Изчерпан</span>
-                                    }
+                                    <span class="badge @(item.InStock ? "bg-success" : "bg-danger")">
+                                        @(item.InStock ? "В наличност" : "Изчерпан")
+                                    </span>
                                 </div>
 
                                 <div class="d-grid gap-2">
-                                    <a class="btn btn-primary"
-                                       asp-controller="Product" asp-action="Details" asp-route-id="@item.Id">
+                                    <a asp-controller="Product" asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">
                                         👁️ Детайли
                                     </a>
-                                    <a class="btn btn-warning"
-                                       asp-controller="Product" asp-action="Edit" asp-route-id="@item.Id">
+                                    <a asp-controller="Product" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">
                                         ✏️ Редактирай
                                     </a>
                                     <form asp-controller="Product" asp-action="Delete" asp-route-id="@item.Id" method="post" class="d-grid">
-                                        <button type="submit"
-                                                class="btn btn-outline-danger"
+                                        <button type="submit" class="btn btn-outline-danger"
                                                 onclick="return confirm('Сигурни ли сте, че искате да изтриете &quot;@item.Name&quot;?')">
                                             🗑️ Изтрий
                                         </button>
@@ -103,7 +101,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             }
@@ -112,8 +109,9 @@
     else
     {
         <div class="text-center py-5">
-            <img src="~/images/product-placeholder.svg" alt="Няма продукти"
-                 class="mb-3" style="width:96px;height:96px;opacity:.6;" />
+            <img src="~/images/product-placeholder.svg"
+                 alt="Няма продукти"
+                 class="mb-3 opacity-50" style="width:96px;height:96px;" />
             <h3 class="text-muted mb-2">Няма продукти</h3>
             <p class="text-muted">Добавете първия продукт, за да започнете.</p>
             <a asp-controller="Product" asp-action="Create" class="btn btn-primary btn-lg">

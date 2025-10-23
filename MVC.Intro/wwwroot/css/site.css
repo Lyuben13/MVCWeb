@@ -436,3 +436,112 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* ================= HERO CLEANUP / UI IMPROVEMENTS ================= */
+.hero-wrap {
+    background: linear-gradient(135deg, #3f7cc1, #5ba0e6);
+    border-radius: 16px;
+    padding: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+.hero-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 28px 24px;
+    margin: 0;
+    box-shadow: none;
+    position: relative;
+    overflow: hidden;
+    min-height: 140px;
+}
+
+    .hero-card::before,
+    .hero-card::after {
+        content: none !important;
+    }
+
+.hero-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
+
+.hide-when-broken {
+    display: none;
+}
+
+.hero-actions {
+    margin-top: 12px;
+    gap: 10px;
+}
+
+    .hero-actions .btn {
+        padding: .7rem 1.2rem;
+        border-radius: 12px;
+    }
+
+.btn[disabled], .btn.disabled {
+    background: #eef2f6 !important;
+    color: #94a3b8 !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: none !important;
+}
+
+/* HERO SECTION */
+.text-gradient {
+    background: linear-gradient(135deg, #3f7cc1, #5ba0e6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-wrap {
+    background: linear-gradient(135deg, #5ba0e6, #3f7cc1);
+    border-radius: 16px;
+    padding: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.hero-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 32px 28px;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-img {
+    width: 280px;
+    height: 180px;
+    object-fit: contain;
+    display: block;
+}
+
+/* PRODUCT CARDS */
+.product-card {
+    border-radius: 16px;
+    transition: all .25s ease;
+}
+
+    .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+body {
+    padding-top: 90px; /* защото навбарът вече е по-висок */
+}
+
+.navbar .nav-link {
+    color: #fff !important;
+    opacity: 0.9;
+    transition: 0.3s ease;
+}
+
+    .navbar .nav-link:hover {
+        opacity: 1;
+        text-decoration: underline;
+        transform: translateY(-1px);
+    }
