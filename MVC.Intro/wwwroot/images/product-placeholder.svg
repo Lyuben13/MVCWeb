@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200">
+  <rect width="300" height="200" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2"/>
+  <text x="150" y="100" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#7f8c8d">📦 Продукт</text>
+  <text x="150" y="130" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#95a5a6">300x200</text>
+</svg>

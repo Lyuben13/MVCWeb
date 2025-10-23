@@ -1,0 +1,438 @@
+/* Modern Design with Colors and Better Typography */
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --accent-color: #e74c3c;
+  --success-color: #27ae60;
+  --warning-color: #f39c12;
+  --light-bg: #ecf0f1;
+  --dark-text: #2c3e50;
+  --light-text: #7f8c8d;
+  --border-color: #bdc3c7;
+  --shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+html {
+  font-size: 20px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 22px;
+  }
+}
+
+body {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  color: var(--dark-text);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+}
+
+/* Header Styling */
+.navbar {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%) !important;
+  box-shadow: var(--shadow);
+  border: none;
+}
+
+.navbar-brand, .nav-link {
+  color: white !important;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.nav-link:hover {
+  color: var(--light-bg) !important;
+  transform: translateY(-1px);
+  transition: all 0.3s ease;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary-color);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+h1 {
+  font-size: 3rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+h2 {
+  font-size: 2.5rem;
+  color: var(--secondary-color);
+}
+
+h3 {
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+/* Cards and Containers */
+.card, .container {
+  background: white;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  border: none;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover, .container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+/* Tables */
+.table {
+  font-size: 1.2rem;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.table thead {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+}
+
+.table th {
+  border: none;
+  padding: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.table td {
+  padding: 1.2rem;
+  vertical-align: middle;
+  border-color: var(--border-color);
+}
+
+.table tbody tr:hover {
+  background-color: var(--light-bg);
+  transform: scale(1.02);
+  transition: all 0.3s ease;
+}
+
+/* Buttons */
+.btn {
+  font-size: 1.1rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--secondary-color), #2980b9);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #2980b9, var(--secondary-color));
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, var(--accent-color), #c0392b);
+  color: white;
+}
+
+.btn-danger:hover {
+  background: linear-gradient(135deg, #c0392b, var(--accent-color));
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, var(--success-color), #229954);
+  color: white;
+}
+
+.btn-success:hover {
+  background: linear-gradient(135deg, #229954, var(--success-color));
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
+}
+
+/* Forms */
+.form-control {
+  font-size: 1.2rem;
+  padding: 1rem 1.2rem;
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.form-control:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+  transform: translateY(-1px);
+}
+
+.form-label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+/* Alerts and Messages */
+.alert {
+  border-radius: 10px;
+  border: none;
+  font-weight: 500;
+  box-shadow: var(--shadow);
+}
+
+.alert-success {
+  background: linear-gradient(135deg, #d4edda, #c3e6cb);
+  color: var(--success-color);
+}
+
+.alert-danger {
+  background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+  color: var(--accent-color);
+}
+
+/* Links */
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+  transform: translateY(-1px);
+}
+
+/* Product Cards */
+.product-card {
+  background: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  border-left: 5px solid var(--secondary-color);
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  border-left-color: var(--accent-color);
+}
+
+/* Background Images */
+.hero-section {
+  background: linear-gradient(135deg, rgba(44, 62, 80, 0.8), rgba(52, 152, 219, 0.8)), 
+              url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Paceloader Styles */
+.paceloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: opacity 0.5s ease-out;
+}
+
+.paceloader.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.paceloader-spinner {
+  width: 80px;
+  height: 80px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+.paceloader-text {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.paceloader-progress {
+  width: 200px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.paceloader-progress-bar {
+  height: 100%;
+  background: white;
+  border-radius: 2px;
+  animation: progress 2s ease-in-out infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes progress {
+  0% { width: 0%; }
+  50% { width: 70%; }
+  100% { width: 100%; }
+}
+
+/* Page transition effects */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.3s ease-out;
+}
+
+/* Loading states for buttons */
+.btn.loading {
+  position: relative;
+  color: transparent !important;
+}
+
+.btn.loading::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  margin-left: -8px;
+  margin-top: -8px;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Card loading animation */
+.card.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.card.loading::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.5rem; }
+  
+  .btn {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+  
+  .table {
+    font-size: 1rem;
+  }
+  
+  .table th,
+  .table td {
+    padding: 0.8rem;
+  }
+  
+  .paceloader-spinner {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .paceloader-text {
+    font-size: 1.2rem;
+  }
+  
+  .paceloader-progress {
+    width: 150px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}

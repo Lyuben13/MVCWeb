@@ -1,0 +1,100 @@
+﻿@model MVC.Intro.Models.Product
+
+@{
+    ViewData["Title"] = "Добави Продукт";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">➕ Добави Нов Продукт</h2>
+                </div>
+                <div class="card-body">
+                    <form asp-action="CreateProduct" method="post">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Name" class="form-label"></label>
+                                    <input asp-for="Name" class="form-control" placeholder="Въведете име на продукта" />
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Price" class="form-label"></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">лв.</span>
+                                        <input asp-for="Price" class="form-control" placeholder="0.00" step="0.01" />
+                                    </div>
+                                    <span asp-validation-for="Price" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label asp-for="Description" class="form-label"></label>
+                            <textarea asp-for="Description" class="form-control" rows="3" placeholder="Опишете продукта..."></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Category" class="form-label"></label>
+                                    <select asp-for="Category" class="form-select">
+                                        <option value="">Изберете категория</option>
+                                        <option value="Електроника">📱 Електроника</option>
+                                        <option value="Дрехи">👕 Дрехи</option>
+                                        <option value="Храна">🍎 Храна</option>
+                                        <option value="Книги">📚 Книги</option>
+                                        <option value="Спорт">⚽ Спорт</option>
+                                        <option value="Животни">🐕 Животни</option>
+                                        <option value="Други">📦 Други</option>
+                                    </select>
+                                    <span asp-validation-for="Category" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="ImagePath" class="form-label"></label>
+                                    <input asp-for="ImagePath" class="form-control" placeholder="images/example.jpg" />
+                                    <div class="form-text">
+                                        Поддържани формати: .jpg, .jpeg, .png, .gif, .svg, .webp<br>
+                                        Примери: images/logo.png, images/product.jpg, images/logo.svg
+                                    </div>
+                                    <span asp-validation-for="ImagePath" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input asp-for="InStock" class="form-check-input" type="checkbox" />
+                                <label asp-for="InStock" class="form-check-label">
+                                    ✅ Продуктът е в наличност
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a asp-action="Index" class="btn btn-outline-secondary me-md-2">
+                                ← Назад към списъка
+                            </a>
+                            <button type="submit" class="btn btn-success">
+                                💾 Създай Продукт
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

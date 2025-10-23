@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300">
+  <defs>
+    <linearGradient id="footballGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e74c3c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c0392b;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="300" fill="url(#footballGradient)"/>
+  <text x="400" y="120" font-family="Arial, sans-serif" font-size="48" font-weight="bold" text-anchor="middle" fill="white">⚽ ФУТБОЛ</text>
+  <text x="400" y="160" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="white">Страстта към играта</text>
+  <circle cx="200" cy="200" r="40" fill="white" opacity="0.3"/>
+  <circle cx="400" cy="200" r="40" fill="white" opacity="0.3"/>
+  <circle cx="600" cy="200" r="40" fill="white" opacity="0.3"/>
+  <text x="200" y="210" font-size="30" text-anchor="middle">⚽</text>
+  <text x="400" y="210" font-size="30" text-anchor="middle">🏆</text>
+  <text x="600" y="210" font-size="30" text-anchor="middle">🥅</text>
+</svg>

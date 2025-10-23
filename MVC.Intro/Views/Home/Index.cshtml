@@ -1,0 +1,73 @@
+﻿@{
+    ViewData["Title"] = "Начало";
+}
+
+<!-- Hero Section с картинка -->
+<div class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold mb-4">Добре дошли! 👋</h1>
+                <p class="lead mb-4">Открийте нашия удивителен свят на продукти и услуги</p>
+                <div class="d-flex gap-3">
+                    <a asp-controller="Product" asp-action="Index" class="btn btn-success btn-lg">
+                        🛒 Виж Продукти
+                    </a>
+                    <a asp-controller="Routing" asp-action="Default" class="btn btn-outline-light btn-lg">
+                        📚 Научи Routing
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <img src="~/images/logo.png" alt="Лого" class="img-fluid rounded-circle shadow-lg" style="max-width: 300px;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Features Section -->
+<div class="container my-5">
+    <div class="row text-center">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="display-1 mb-3">🛒</div>
+                    <h3 class="card-title">Продукти</h3>
+                    <p class="card-text">Разгледайте нашия богат асортимент от качествени продукти за всеки вкус и нужда.</p>
+                    <a asp-controller="Product" asp-action="Index" class="btn btn-primary">Виж Продукти</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="display-1 mb-3">📚</div>
+                    <h3 class="card-title">Routing</h3>
+                    <p class="card-text">Научете как работи routing в ASP.NET Core с интерактивни примери и демонстрации.</p>
+                    <a asp-controller="Routing" asp-action="Default" class="btn btn-primary">Научи Routing</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="display-1 mb-3">⚡</div>
+                    <h3 class="card-title">Бързо & Лесно</h3>
+                    <p class="card-text">Нашето приложение е създадено с най-модерните технологии за максимална производителност.</p>
+                    <a asp-controller="Home" asp-action="Privacy" class="btn btn-primary">Научи Повече</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Call to Action -->
+<div class="bg-light py-5">
+    <div class="container text-center">
+        <h2 class="mb-4">Готови ли сте да започнете? 🚀</h2>
+        <p class="lead mb-4">Присъединете се към хилядите доволни клиенти</p>
+        <a asp-controller="Product" asp-action="Create" class="btn btn-success btn-lg">
+            ➕ Добави Първи Продукт
+        </a>
+    </div>
+</div>
