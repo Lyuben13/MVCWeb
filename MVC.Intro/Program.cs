@@ -4,6 +4,13 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using MVC.Intro.Data;
 using MVC.Intro.Services;
+using System;
+using System.IO;
+using System.Threading.Tasks;
+using System.Linq; // ← за .Any()
+using Microsoft.Extensions.DependencyInjection; // ← за GetRequiredService
+
+
 
 namespace MVC.Intro
 {

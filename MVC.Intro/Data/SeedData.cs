@@ -26,7 +26,7 @@ namespace MVC.Intro.Data
                     Name = "Gaming Laptop",
                     Price = 2500.00m,
                     Description = "Мощен лаптоп за гейминг и работа",
-                    ImagePath = "images/laptop.svg",
+                    ImagePath = "images/nitro.jpg.webp",
                     Category = "Електроника",
                     InStock = true
                 },

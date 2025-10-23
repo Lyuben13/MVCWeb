@@ -615,3 +615,66 @@ body {
     background: url("/images/shop-banner.svg") right 24px center / 260px auto no-repeat, radial-gradient(ellipse at center, rgba(255,255,255,.45), rgba(255,255,255,0) 60%);
 }
 
+/* === ROUTING PAGE === */
+.routing-card {
+    border-radius: 14px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+    .routing-card .card-body {
+        padding: 24px 26px;
+    }
+
+.routing-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 1.1rem;
+}
+
+    .routing-table thead th {
+        background: linear-gradient(135deg, #3b6ea8, #3f86c9);
+        color: #fff;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: .6px;
+        border: none;
+        padding: 14px 18px;
+    }
+
+    .routing-table tbody td {
+        padding: 14px 18px;
+        border-bottom: 1px solid #e8edf3;
+    }
+
+    .routing-table tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+    .routing-table tbody tr:hover {
+        background-color: #f5faff;
+        transition: background-color .25s ease;
+    }
+
+    .routing-table a {
+        color: #1e6fc4;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+        .routing-table a:hover {
+            color: #0f4f91;
+            text-decoration: underline;
+        }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .routing-card .card-body {
+        padding: 16px;
+    }
+
+    .routing-table {
+        font-size: .9rem;
+    }
+}
