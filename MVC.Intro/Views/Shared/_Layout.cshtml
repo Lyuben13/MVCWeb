@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="~/MVC.Intro.styles.css" asp-append-version="true" />
 </head>
 
-<body>
+<body class="@(ViewData["BodyClass"] ?? "")">
+
     <!-- HEADER -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm"
@@ -58,14 +59,22 @@
                                 🔒 Поверителност
                             </a>
                         </li>
+                        @await Html.PartialAsync("_LoginPartial")
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
 
+    @{
+        var bodyClass = ViewData["BodyClass"] as string ?? "";
+        var mainWrapperClass = bodyClass == "account-bg"
+        ? "account-main"
+        : "container mt-5 pt-5 mb-5";
+    }
+
     <!-- MAIN CONTENT -->
-    <div class="container mt-5 pt-5 mb-5">
+    <div class="@mainWrapperClass">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

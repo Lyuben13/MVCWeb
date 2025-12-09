@@ -12,10 +12,10 @@ class Paceloader {
     init() {
         // Create loader HTML
         this.createLoader();
-        
+
         // Show loader on page load
         this.show();
-        
+
         // Hide loader when page is fully loaded
         window.addEventListener('load', () => {
             setTimeout(() => this.hide(), 500);
@@ -23,7 +23,7 @@ class Paceloader {
 
         // Add loading states to forms
         this.addFormLoadingStates();
-        
+
         // Add loading states to links
         this.addLinkLoadingStates();
     }
@@ -38,7 +38,7 @@ class Paceloader {
                 </div>
             </div>
         `;
-        
+
         document.body.insertAdjacentHTML('afterbegin', loaderHTML);
         this.loader = document.getElementById('paceloader');
     }
@@ -72,7 +72,7 @@ class Paceloader {
                 if (submitBtn) {
                     submitBtn.classList.add('loading');
                     submitBtn.disabled = true;
-                    
+
                     // Show loader
                     this.show('Запазване...');
                 }

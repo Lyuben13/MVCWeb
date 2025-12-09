@@ -1,11 +1,9 @@
-using MVC.Intro.Services;
-
 namespace MVC.Intro.Tests
 {
     public class ProductServiceTests
     {
         //ProductService _service = new ProductService();
-        //[Fact]        
+        //[Fact]
         //public void AddProduct_WithValidProduct_ShouldCreateProduct()
         //{
         //    // Arrange

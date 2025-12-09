@@ -18,6 +18,11 @@ namespace MVC.Intro.Data
         public DbSet<Product> Products { get; set; } = null!;
 
         /// <summary>
+        /// Users table
+        /// </summary>
+        public DbSet<User> Users { get; set; } = null!;
+
+        /// <summary>
         /// Configure entity relationships and constraints
         /// </summary>
         /// <param name="modelBuilder">Model builder instance</param>
@@ -35,6 +40,22 @@ namespace MVC.Intro.Data
                 entity.Property(e => e.Price)
                     .IsRequired()
                     .HasColumnType("decimal(18,2)");
+            });
+
+            // Configure User entity
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Email)
+                    .IsRequired()
+                    .HasMaxLength(256);
+                entity.HasIndex(e => e.Email)
+                    .IsUnique();
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(100);
+                entity.Property(e => e.PasswordHash)
+                    .IsRequired();
             });
         }
     }

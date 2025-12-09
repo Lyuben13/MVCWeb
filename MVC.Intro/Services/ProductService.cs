@@ -114,7 +114,7 @@ namespace MVC.Intro.Services
             try
             {
                 _logger.LogInformation("Updating product: {ProductName} with ID: {ProductId}", product.Name, product.Id);
-                
+
                 var existingProduct = await _context.Products.FirstOrDefaultAsync(p => p.Id == product.Id);
                 if (existingProduct == null)
                 {
@@ -157,7 +157,7 @@ namespace MVC.Intro.Services
             try
             {
                 _logger.LogInformation("Attempting to delete product with ID: {ProductId}", id);
-                
+
                 var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
                 if (product == null)
                 {

@@ -1,16 +1,6 @@
-using System;
-using System.IO;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using MVC.Intro.Data;
 using MVC.Intro.Services;
-using System;
-using System.IO;
-using System.Threading.Tasks;
-using System.Linq; // ← за .Any()
-using Microsoft.Extensions.DependencyInjection; // ← за GetRequiredService
-
-
 
 namespace MVC.Intro
 {
@@ -21,7 +11,9 @@ namespace MVC.Intro
             // --- ContentRoot/WebRoot ---
             var exeDir = AppContext.BaseDirectory; // ...\bin\Debug\net8.0\
             var projectDir = exeDir;
-            if (exeDir.Contains($"{Path.DirectorySeparatorChar}bin{Path.DirectorySeparatorChar}", StringComparison.OrdinalIgnoreCase))
+
+            if (exeDir.Contains($"{Path.DirectorySeparatorChar}bin{Path.DirectorySeparatorChar}",
+                StringComparison.OrdinalIgnoreCase))
             {
                 projectDir = Path.GetFullPath(Path.Combine(exeDir, "..", "..", ".."));
             }
@@ -41,6 +33,17 @@ namespace MVC.Intro
                                   ?? "Data Source=products.db"));
 
             builder.Services.AddScoped<IProductService, ProductService>();
+            builder.Services.AddScoped<IAuthService, AuthService>();
+
+            // Configure Sessions
+            builder.Services.AddDistributedMemoryCache();
+            builder.Services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+                options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+            });
 
             var app = builder.Build();
 
@@ -49,11 +52,12 @@ namespace MVC.Intro
             {
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
+                app.UseHttpsRedirection();
             }
 
-            app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();
+            app.UseSession();
             app.UseAuthorization();
 
             app.MapControllerRoute(
@@ -70,12 +74,10 @@ namespace MVC.Intro
             {
                 var ctx = scope.ServiceProvider.GetRequiredService<AppDbContext>();
 
-                // Ако имаш миграции, прилагаме ги.
                 if ((await ctx.Database.GetPendingMigrationsAsync()).Any())
                 {
                     await ctx.Database.MigrateAsync();
                 }
-                // Ако НЯМА никакви миграции в проекта (чист dev проект) – създай схемата.
                 else if (!(await ctx.Database.GetAppliedMigrationsAsync()).Any())
                 {
                     await ctx.Database.EnsureCreatedAsync();

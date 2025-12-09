@@ -8,18 +8,15 @@
 <!-- HERO -->
 <section class="hero-wrap mb-4">
     <div class="hero-card">
-        <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
+        <div class="container">
             <div>
-                <h1 class="fw-bold mb-2 text-gradient">🛍️ Нашите продукти</h1>
+                <h1 class="fw-bold mb-2 text-gradient">Нашите продукти</h1>
                 <p class="text-muted mb-3">Открийте най-добрите оферти на едно място</p>
                 <a asp-controller="Product" asp-action="Create" class="btn btn-success btn-lg">
                     ➕ Добави нов продукт
                 </a>
             </div>
-            <img src="~/images/shop-banner.svg"
-                 alt="Products banner"
-                 class="hero-img ms-md-4"
-                 onerror="this.style.display='none';" />
+            @* <img src="~/images/shop-banner.svg" alt="Banner" class="hero-img" /> *@
         </div>
     </div>
 </section>
@@ -126,3 +123,5 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
+
+
