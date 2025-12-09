@@ -61,3 +61,12 @@
 #*.PDF   diff=astextplain
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
+
+
+* text=auto
+
+*.cs text eol=crlf
+*.cshtml text eol=crlf
+*.json text eol=crlf
+*.css text eol=crlf
+*.js text eol=crlf
